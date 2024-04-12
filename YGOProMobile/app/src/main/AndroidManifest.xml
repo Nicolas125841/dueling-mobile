@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.psquaredsoftware.ygomobile">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION"/>
+    <application
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
+        android:allowBackup="true"
+        android:icon="@drawable/outputonlinepngtools"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/outputonlinepngtools"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.psquaredsoftware.ygomobile.MainActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.psquaredsoftware.ygomobile.DeckEditorActivity"
+                  android:screenOrientation="portrait"></activity>
+        <activity android:name="com.psquaredsoftware.ygomobile.LobbyMenu"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.psquaredsoftware.ygomobile.DuelActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.psquaredsoftware.ygomobile.NewDuelActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.psquaredsoftware.ygomobile.EmailController"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.psquaredsoftware.ygomobile.DonationController"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.psquaredsoftware.ygomobile.TestDeck"
+            android:screenOrientation="portrait"></activity>
+    </application>
+</manifest>

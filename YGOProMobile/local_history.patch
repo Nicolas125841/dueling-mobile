@@ -1,0 +1,324 @@
+Index: app/src/main/java/com/example/ygopromobile/DuelActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/ygopromobile/DuelActivity.java	(date 1578106338229)
++++ app/src/main/java/com/example/ygopromobile/DuelActivity.java	(date 1578106338229)
+@@ -27,13 +27,19 @@
+ import androidx.appcompat.app.AppCompatActivity;
+ import androidx.gridlayout.widget.GridLayout;
+ 
++import java.io.DataInputStream;
++import java.io.DataOutputStream;
+ import java.io.IOException;
+ import java.io.InputStream;
++import java.io.OutputStream;
++import java.net.ServerSocket;
++import java.net.Socket;
+ import java.net.URL;
+ import java.util.ArrayList;
+ 
+ public class DuelActivity extends AppCompatActivity {
+ 
++    ArrayList<ImageView> handContents = new ArrayList<ImageView>();
+     GridLayout handG;
+     ImageView deck1;
+     Button toField;
+@@ -44,7 +50,7 @@
+     ArrayList<String> graveyard = new ArrayList<String>();
+     ArrayList<String> banishZone = new ArrayList<String>();
+     ArrayList<String> hand = new ArrayList<String>();
+-    ArrayList<Drawable> handR = new ArrayList<Drawable>();
++    //ArrayList<Drawable> handR = new ArrayList<Drawable>();
+     myDbAdapter helper;
+     int state = 0;
+     Context con = this;
+@@ -71,12 +77,25 @@
+     ImageView prev;
+     Button viewCard;
+     Button banEd;
+-
++    boolean host = false;
++    DataOutputStream os = null;
++    DataInputStream is = null;
++    ServerSocket hoster = null;
++    Socket player = null;
++    Socket client = null;
++    ArrayList<ImageView> filedContents = new ArrayList<ImageView>();
++    ArrayList<String> filedNames = new ArrayList<String>();
++    ArrayList<ImageView> opphand = new ArrayList<>();
++    ArrayList<String> opphandNames = new ArrayList<>();
++    GridLayout handOp;
++    ArrayList<ImageView> mainDeckContents = new ArrayList<>();
++    final String urlServer = "http://192.168.0.39/photos/";
+     @Override
+     protected void onCreate(@Nullable Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.game_layout);
+         draw = findViewById(R.id.draw);
++        handOp = findViewById(R.id.hand2);
+         banEd = findViewById(R.id.banishEd);
+         viewCard = findViewById(R.id.viewCard);
+         prev = findViewById(R.id.imageView2);
+@@ -99,7 +118,60 @@
+         graveView = findViewById(R.id.graveCont);
+         Bundle extras = getIntent().getExtras();
+ 
+-        final String urlServer = "http://192.168.0.39/photos/";
++
++        if(extras.getString("TYPE").equals("HOST")){
++            try {
++                SocketTransfer st = (SocketTransfer) extras.getSerializable("SOCKET");
++                os = st.getOs();
++                is = st.getIs();
++                hoster = st.getHost();
++                client = st.getClient();
++                host = true;
++            }catch(Exception e){
++                ((TextView) findViewById(R.id.textView3)).setText(e.getMessage());
++            }
++        }else{
++            try {
++                SocketTransfer st = (SocketTransfer) extras.getSerializable("SOCKET");
++                os = st.getOs();
++                is = st.getIs();
++                player = st.getPlayer();
++            }catch (Exception e){
++                ((TextView) findViewById(R.id.textView3)).setText(e.getMessage());
++            }
++        }
++
++       /* new Thread(new Runnable() {
++            @Override
++            public void run() {
++                while(true){
++
++                    while(true) {
++                        try {
++
++                            if (!(is.available() == 0)) break;
++                            String buff = is.readUTF();
++                            if(buff.contains("TOFIELD")){
++                                new PutToFieldOp().execute(buff);
++                            }else if(buff.contains("REMOVEHAND")){
++                                int ind = Integer.parseInt(buff.substring(10));
++                                opphand.remove(ind);
++                                opphandNames.remove(ind);
++                                handOp.removeViewAt(ind);
++                            }else if(buff.contains("DRAW")){
++                                new DrawOp().execute(buff);
++                            }
++
++                        } catch (Exception e) {
++                            e.printStackTrace();
++                        }
++                    };
++
++                }
++            }
++        }).start();*/
++
++
+         String[] splitDb = extras.getString("DECK").split("&&");
+         for (int i = 0; i < splitDb.length; i++) {
+ 
+@@ -795,10 +867,11 @@
+ 
+                         case DragEvent.ACTION_DROP:
+ 
++
+                             ClipData.Item item = event.getClipData().getItemAt(0);
+ 
+                             String dragData = (String) item.getText();
+-                            android.widget.RelativeLayout.LayoutParams p;
++                            final android.widget.RelativeLayout.LayoutParams p;
+ 
+                             //Toast.makeText(this, "Dragged data is " + dragData, Toast.LENGTH_SHORT).show();
+ 
+@@ -810,7 +883,6 @@
+                             ViewGroup owner = (ViewGroup) vw.getParent();
+                             owner.removeView(vw);
+                             RelativeLayout container = (RelativeLayout) v;
+-
+                             container.addView(vw);//Add the dragged view
+                             p = (RelativeLayout.LayoutParams) vw.getLayoutParams();
+                             p.leftMargin = (int) event.getX() - 50;
+@@ -819,6 +891,24 @@
+                             p.height = 140;
+                             vw.setLayoutParams(p);
+                             vw.setVisibility(View.VISIBLE);
++                            //handContents.indexOf((ImageView) vw);
++                           /* filedContents.add((ImageView) vw);
++                            final int strind = handContents.indexOf((ImageView) vw);
++                            filedNames.add(hand.get(strind));
++                            hand.remove(handContents.indexOf((ImageView) vw));
++                            handContents.remove((ImageView) vw);
++
++                            new Thread(new Runnable() {
++                                @Override
++                                public void run() {
++                                    try {
++                                        os.writeUTF("REMOVEHAND" + strind);
++                                        os.writeUTF("TOFIELD" + p.leftMargin + "X" + p.topMargin + "Y" + urlServer + filedNames.get(strind) + ".jpg");
++                                    } catch (Exception e) {
++                                        e.printStackTrace();
++                                    }
++                                }
++                            }).start();*/
+                             return true;
+ 
+                         case DragEvent.ACTION_DRAG_ENDED:
+@@ -993,6 +1083,9 @@
+         @Override
+         protected Object[] doInBackground(String... url) {
+             InputStream is = null;
++
++
++
+             try {
+                 is = (InputStream) new URL(url[0]).getContent();
+                 //searchResults.add(toUrl.formatURLReverse(url[0].substring(27, url[0].lastIndexOf('.'))));
+@@ -1053,6 +1146,7 @@
+             try{
+                 deckView.addView(tmp);
+                 deckCon.add(tmp);
++                mainDeck.add((String) d[1]);
+                 //((TextView) findViewById(R.id.textView3)).setText("Size" + deckCon.size());
+             }catch (Exception e){
+                 ((TextView) findViewById(R.id.textView3)).setText(e.getMessage());
+@@ -1061,6 +1155,52 @@
+         }
+     }
+ 
++    private class PutToFieldOp extends AsyncTask<String, Void, Object[]> {
++
++        @Override
++        protected Object[] doInBackground(String... url) {
++            InputStream is = null;
++            String buff = url[0];
++            try {
++                is = (InputStream) new URL(buff.substring(buff.indexOf('Y') + 1)).getContent();
++                //searchResults.add(toUrl.formatURLReverse(url[0].substring(27, url[0].lastIndexOf('.'))));
++            } catch (IOException e) {
++                e.printStackTrace();
++            }
++            Drawable d = Drawable.createFromStream(is, "src name");
++            Object[] ret = new Object[3];
++            ret[0] = d;
++            ret[1] = toUrl.formatURLReverse(url[0].substring(27, url[0].lastIndexOf('.')));
++            ret[2] = url[0];
++            return ret;
++        }
++
++        @Override
++        protected void onPostExecute(Object[] d) {
++            String buff = (String)d[2];
++            int x = Integer.parseInt(buff.substring(7, buff.indexOf('X')));
++            int y = Integer.parseInt(buff.substring( buff.indexOf('X') + 1, buff.indexOf('Y')));
++            //String imgUrl = buff.substring(buff.indexOf('Y') + 1);
++            final ImageView img = new ImageView(con);
++            img.setImageDrawable((Drawable) d[0]);
++            RelativeLayout.LayoutParams p = (RelativeLayout.LayoutParams) field.getLayoutParams();
++            x += (2 * (179 - x));
++            y += (2 * (214 - x));
++            p.leftMargin = (int) x;
++            p.topMargin = (int) y;
++            p.width = 100;
++            p.height = 140;
++            img.setLayoutParams(p);
++            img.setRotation(180);
++            runOnUiThread(new Runnable() {
++                @Override
++                public void run() {
++                    field.addView(img);
++                }
++            });
++        }
++    }
++
+     private class PutToEDeck extends AsyncTask<String, Void, Object[]> {
+ 
+         @Override
+@@ -1144,20 +1284,81 @@
+                 public void run() {
+                     try {
+                         ImageView tmp = (ImageView) deckView.getChildAt(0);
++                        final int in2 = deckCon.indexOf(tmp);
+                         deckView.removeViewAt(0);
+                         handG.addView(tmp);
++                        handContents.add(tmp);
++                        hand.add(mainDeck.get(in2));
++                        mainDeck.remove(in2);
++                        deckCon.remove(tmp);
+ 
++
+                     }catch (Exception e){
+                         ((TextView) findViewById(R.id.textView3)).setText(e.getMessage());
+                     }
+                 }
+             });
++/*try {
++    new Thread(new Runnable() {
++        @Override
++        public void run() {
++            try {
++                //os.writeUTF("DRAW" + hand.get(hand.size() - 1));
++            } catch (Exception e) {
++                ((TextView) findViewById(R.id.textView3)).setText(e.getMessage());
++            }
++        }
++    }).start();
++}catch (Exception e){
++    final Exception ex = e;
++    runOnUiThread(new Runnable() {
++        @Override
++        public void run() {
++            ((TextView) findViewById(R.id.textView3)).setText(ex.getMessage());
++        }
++    });
++
++}*/
+             return null;
+         }
+ 
+         @Override
+         protected void onPostExecute(Object[] d) {
+ 
++
++        }
++    }
++
++    private class DrawOp extends AsyncTask<String, Void, Object[]> {
++
++        @Override
++        protected Object[] doInBackground(String... url) {
++            InputStream is = null;
++            try {
++                is = (InputStream) new URL(urlServer +  url[0].substring(4) + ".jpg").getContent();
++                //searchResults.add(toUrl.formatURLReverse(url[0].substring(27, url[0].lastIndexOf('.'))));
++            } catch (IOException e) {
++                e.printStackTrace();
++            }
++            Drawable d = Drawable.createFromStream(is, "src name");
++            Object[] ret = new Object[2];
++            ret[0] = d;
++            ret[1] = toUrl.formatURLReverse(url[0].substring(27, url[0].substring(4).lastIndexOf('.')));
++            return ret;
++        }
++
++        @Override
++        protected void onPostExecute(Object[] d) {
++
++            opphandNames.add((String) d[1]);
++            final ImageView tmp = new ImageView(con);
++
++            tmp.setImageDrawable((Drawable) d[0]);
++            tmp.setMaxWidth(42);
++            tmp.setMaxHeight(64);
++            opphand.add(tmp);
++            handOp.addView(tmp);
++
+ 
+         }
+     }

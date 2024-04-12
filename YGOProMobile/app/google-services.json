@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "691049122206",
+    "firebase_url": "https://internal-test-1-4e2d5.firebaseio.com",
+    "project_id": "internal-test-1-4e2d5",
+    "storage_bucket": "internal-test-1-4e2d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691049122206:android:e699bf62f4e16d025aae8f",
+        "android_client_info": {
+          "package_name": "com.psquaredsoftware.ygomobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691049122206-inuh36tkd629impr1hhuh4ll3efkj2vu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV1a-rryqFtkwxOYdkGJwkhaBCiRB4RRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691049122206-inuh36tkd629impr1hhuh4ll3efkj2vu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

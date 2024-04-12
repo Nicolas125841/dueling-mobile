@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Dueling Mobile</string>
+    <string name="title_home">Home</string>
+    <string name="title_deck">Deck</string>
+    <string name="title_duel">Duel</string>
+    <string name="button_newdeck">Create</string>
+    <string name="apikey">AIzaSyBV1a-rryqFtkwxOYdkGJwkhaBCiRB4RRI</string>
+    <string name="basename">internal-test-1-4e2d5</string>
+    <string name="appid">1:691049122206:android:e699bf62f4e16d025aae8f</string>
+    <string name="urlcards">http://ygo.ignorelist.com/photos/</string>
+    <string name="urlcards2">http://ygo.ignorelist.com/photosSm/</string>
+    <string name="urlcards3">https://storage.googleapis.com/ygoprodeck.com/pics/</string>
+    <string name="urlcards4">https://storage.googleapis.com/ygoprodeck.com/pics_small/</string>
+    <string name="host">ygo.ignorelist.com</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text='Hello everyone, I know that we are still in alpha and all, but I just wanted to let you know that server hosting is a bit spendy, which means that I am fairly limited in the level of server hosting I can afford. It probably wont make much of a difference now, but later on the server will probably need to be upgraded to something faster in order to support more players and speed up the game. Any support towards helping maintain and improve YGOMobile would be greatly appreciated. Thank you for your support.' />
+
+    <Button
+        android:id="@+id/paypalbut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Donate" />
+</LinearLayout>

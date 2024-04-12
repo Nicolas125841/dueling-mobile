@@ -1,0 +1,1137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gamecover"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foreground="@drawable/loadingscreen">
+
+    <Button
+        android:id="@+id/messagebutton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Message"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/handcont" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:elevation="2dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/handcont"
+        app:srcCompat="@drawable/alert" />
+
+    <HorizontalScrollView
+        android:id="@+id/handcont2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="@+id/field"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/hand2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </androidx.gridlayout.widget.GridLayout>
+
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/handcont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="@+id/field"
+        app:layout_constraintTop_toBottomOf="@id/field">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/hand1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </androidx.gridlayout.widget.GridLayout>
+
+    </HorizontalScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/field"
+        android:layout_width="0dp"
+        android:layout_height="374dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/nicksgamesrc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/opponentHP"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:clickable="false"
+            android:contextClickable="false"
+            android:ems="10"
+            android:inputType="number"
+            android:linksClickable="false"
+            android:longClickable="false"
+            android:singleLine="false"
+            android:text="8000"
+            android:textColor="#FF1100"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/yourHP"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:inputType="number"
+            android:singleLine="false"
+            android:text="8000"
+            android:textColor="#00FF0C"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:text="TextView"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/moreOptions"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="false"
+            android:foreground="@drawable/extraoptions" />
+
+        <ImageView
+            android:id="@+id/extradeck"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:alpha="0.1"
+            app:srcCompat="@drawable/cardname" />
+
+        <ImageView
+            android:id="@+id/banishZone"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:alpha="0.1"
+            app:srcCompat="@drawable/cardname" />
+
+        <ImageView
+            android:id="@+id/grave"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:alpha="0.1"
+            app:srcCompat="@drawable/cardname" />
+
+        <ImageView
+            android:id="@+id/banishZone2"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:alpha="0.1"
+            android:rotation="180"
+            app:srcCompat="@drawable/cardname" />
+
+        <ImageView
+            android:id="@+id/deck2"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:rotation="180"
+            app:srcCompat="@drawable/cardname" />
+
+        <ImageView
+            android:id="@+id/extradeck2"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:alpha="0.1"
+            android:rotation="180"
+            app:srcCompat="@drawable/cardname" />
+
+        <ImageView
+            android:id="@+id/deck"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/cardname" />
+
+        <ImageView
+            android:id="@+id/grave2"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:alpha="0.1"
+            android:rotation="180"
+            app:srcCompat="@drawable/cardname" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/edViewCont"
+        android:layout_width="0dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/field">
+
+        <Button
+            android:id="@+id/banishEd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foreground="@drawable/banishcard" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nonViewDeckControls"
+        android:layout_width="0dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="8dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/field">
+
+        <Button
+            android:id="@+id/mill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mill" />
+
+        <Button
+            android:id="@+id/banish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foreground="@drawable/banishcard" />
+
+        <Button
+            android:id="@+id/draw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foreground="@drawable/drawcard" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/yourbsc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#36D2FC"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/container5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/banishCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#36D2FC"
+                android:visibility="invisible"
+                app:columnCount="7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <LinearLayout
+                android:id="@+id/banishPadding"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:background="#36D2FC"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/attachCards"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#36D2FC"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/attachContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/attachContents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#36D2FC"
+                android:visibility="visible"
+                app:columnCount="7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <LinearLayout
+                android:id="@+id/attachPadding"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:background="#36D2FC"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/showCards"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#36D2FC"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/showContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/showContents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#36D2FC"
+                android:visibility="visible"
+                app:columnCount="7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <LinearLayout
+                android:id="@+id/showPadding"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:background="#36D2FC"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/oppbsc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#36D2FC"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/container4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/banishCont2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#36D2FC"
+                android:visibility="invisible"
+                app:columnCount="7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <LinearLayout
+                android:id="@+id/opponentBanishPadding"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:background="#36D2FC"
+                android:orientation="vertical"
+                android:visibility="visible"></LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/yourgrvsc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#269DBB"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/container3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/graveCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#269DBB"
+                android:visibility="visible"
+                app:columnCount="7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <LinearLayout
+                android:id="@+id/gravePadding"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:background="#269DBB"
+                android:orientation="vertical"
+                android:visibility="visible"></LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/oppgravesc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#269DBB"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/container2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/graveCont2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#269DBB"
+                android:visibility="invisible"
+                app:columnCount="7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <LinearLayout
+                android:id="@+id/opponentGravePadding"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:background="#269DBB"
+                android:orientation="vertical"
+                android:visibility="visible"></LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/decksc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C3C3C3"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/maincontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/deckContents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#C3C3C3"
+                android:visibility="invisible"
+                app:columnCount="7">
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <LinearLayout
+                android:id="@+id/deckPadding"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:background="#C3C3C3"
+                android:orientation="vertical"
+                android:visibility="visible"></LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/edecksc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99D9EA"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/container6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/edCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#99D9EA"
+                android:visibility="invisible"
+                app:columnCount="7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <LinearLayout
+                android:id="@+id/extraDeckPadding"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:background="#99D9EA"
+                android:orientation="vertical"
+                android:visibility="visible"></LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/opedecksc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99D9EA"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/container7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/opedCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#99D9EA"
+                android:visibility="invisible"
+                app:columnCount="7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <LinearLayout
+                android:id="@+id/extraDeckPaddingOP"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:background="#99D9EA"
+                android:orientation="vertical"
+                android:visibility="visible"></LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/attachViewControls"
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/field">
+
+        <Button
+            android:id="@+id/viewCardAD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:foreground="@drawable/viewcard" />
+
+        <Button
+            android:id="@+id/toGraveBAD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="TG" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/oppViewControlsD"
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/field">
+
+        <Button
+            android:id="@+id/viewCardOD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:foreground="@drawable/viewcard" />
+
+        <Button
+            android:id="@+id/toGraveBOD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="TG" />
+
+        <Button
+            android:id="@+id/toBanishBOD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="TB" />
+
+        <Button
+            android:id="@+id/toTopB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="TOP" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/oppViewControlsE"
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/field">
+
+        <Button
+            android:id="@+id/viewCardOE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:foreground="@drawable/viewcard" />
+
+        <Button
+            android:id="@+id/toGraveBOE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="TG" />
+
+        <Button
+            android:id="@+id/toBanishBOE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="TB" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/normalControls"
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/field">
+
+        <Switch
+            android:id="@+id/set"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/viewCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:foreground="@drawable/viewcard" />
+
+        <Button
+            android:id="@+id/fud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:foreground="@drawable/flipcard" />
+
+        <Button
+            android:id="@+id/toBanishB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="TB" />
+
+        <Button
+            android:id="@+id/da"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:foreground="@drawable/rotatecard" />
+
+        <Button
+            android:id="@+id/addCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:foreground="@drawable/addcount" />
+
+        <Button
+            android:id="@+id/removeCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:foreground="@drawable/removecount" />
+
+        <Button
+            android:id="@+id/attackbut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="A" />
+
+        <Button
+            android:id="@+id/toGraveB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="TG" />
+
+        <Button
+            android:id="@+id/toEdB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="TE" />
+
+        <Button
+            android:id="@+id/toHB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="TH" />
+
+        <Button
+            android:id="@+id/toDeckB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="TD" />
+
+        <Button
+            android:id="@+id/changeControl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="CH" />
+
+        <Button
+            android:id="@+id/viewAttached"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="VA" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/dieResult"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80F11717"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/dieNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="6"
+            android:textColor="#F8F8F8"
+            android:textSize="100sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/specialCommandsWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/messagebutton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RelativeLayout
+            android:id="@+id/specialCommands"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#9A7C6969"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/token"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/token" />
+
+            <Button
+                android:id="@+id/dieRoll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/token"
+                android:text="Roll Dice" />
+
+            <Button
+                android:id="@+id/coinFlip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dieRoll"
+                android:text="Flip Coin" />
+
+            <Button
+                android:id="@+id/shuffleDeck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/coinFlip"
+                android:text="Shuffle Deck" />
+
+            <Button
+                android:id="@+id/shuffleHand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shuffleEDeck"
+                android:text="Shuffle Hand" />
+
+            <Button
+                android:id="@+id/shuffleEDeck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shuffleDeck"
+                android:text="Shuffle Extra Deck" />
+
+            <Button
+                android:id="@+id/surrenderButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shuffleHand"
+                android:text="Surrender" />
+
+            <Button
+                android:id="@+id/resetButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/surrenderButton"
+                android:text="Reset" />
+
+            <Button
+                android:id="@+id/sideDeckButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/resetButton"
+                android:text="Side" />
+
+            <Button
+                android:id="@+id/showHand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sideDeckButton"
+                android:text="Show Hand" />
+
+            <Button
+                android:id="@+id/showEdeck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/showHand"
+                android:text="Show EDeck" />
+
+            <EditText
+                android:id="@+id/numToReveal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/showEdeck"
+                android:inputType="number"
+                android:text="1"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/showTopDeck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/showEdeck"
+                android:layout_toRightOf="@id/numToReveal"
+                android:text="Show Deck" />
+
+            <Switch
+                android:id="@+id/canShowButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/showTopDeck"
+                android:layout_centerHorizontal="true"
+                android:text="Hide Non Essential Buttons"
+                android:textColor="#FFFFFF" />
+
+            <RelativeLayout
+                android:id="@+id/bufferforcont"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_below="@id/showTopDeck"
+                android:background="#9A7C6969"></RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/exitGame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AD8D8282"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/exitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="EXIT" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/resetGameBack"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AD8D8282"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/resetConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="RESET" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/sideCardsB"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AD8D8282"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/sideConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="SIDE" />
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chatcon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:id="@+id/msgscrol"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@id/sendMessage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/msgpadcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/msglist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/msgpadding"
+                    android:layout_width="match_parent"
+                    android:layout_height="1000dp"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <EditText
+            android:id="@+id/sendMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/edit_text"
+            android:ems="10"
+            android:hint="Type Here:"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/deckInOpt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80747373"
+        android:elevation="10dp"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/shufbut"
+            android:layout_centerHorizontal="true"
+            android:text="Where to place card?"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/shufbut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/topbut"
+            android:layout_centerVertical="false"
+            android:text="Random/Shuffle" />
+
+        <Button
+            android:id="@+id/topbut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Top" />
+
+        <Button
+            android:id="@+id/botbut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/topbut"
+            android:text="Bottom" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/coverforgame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1AF8F8F8"
+        android:elevation="11dp">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/moveani"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#00FFFFFF"
+        android:elevation="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/handcont"
+        app:layout_constraintEnd_toEndOf="@id/field"
+        app:layout_constraintStart_toStartOf="@id/field"
+        app:layout_constraintTop_toTopOf="@id/handcont2">
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_home_black_24dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

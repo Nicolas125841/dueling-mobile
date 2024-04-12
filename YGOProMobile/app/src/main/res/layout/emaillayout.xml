@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="If you ever want to send me some feedback, notify me of a bug, or just want to chat, you can use one of the appropriate buttons below to send me a message. (Note, for bug reports the more information there is, the better I can solve the problem)" />
+
+    <Button
+        android:id="@+id/bugemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bug Report" />
+
+    <Button
+        android:id="@+id/feedbackemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Feedback" />
+
+    <Button
+        android:id="@+id/generalemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="General" />
+
+    <Button
+        android:id="@+id/knownissues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Known Issues" />
+</LinearLayout>
